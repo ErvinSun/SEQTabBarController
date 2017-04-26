@@ -2,12 +2,12 @@
 自定义TabBarController
 
 基于系统TabBarController自定义，可以使用系统tabBarController代理进行操作，比如：
-` ``- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
     if ([viewController.tabBarItem.title isEqualToString:@"我的"]) {
         return NO;
     }
     return YES;
-}` ``
+}
 进行item点击拦截
 
 /**
