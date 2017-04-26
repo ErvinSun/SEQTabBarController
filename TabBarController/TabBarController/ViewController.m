@@ -17,11 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    UIColor *backColor = [UIColor colorWithRed:arc4random()%255/255.0f green:arc4random()%255/255.0f blue:arc4random()%255/255.0f alpha:1];
+    self.view.backgroundColor = backColor;
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(100, 100, 100, 100);
     button.backgroundColor = [UIColor grayColor];
     [button addTarget:self action:@selector(buttonclick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+    
 }
 - (void)buttonclick{
     AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;

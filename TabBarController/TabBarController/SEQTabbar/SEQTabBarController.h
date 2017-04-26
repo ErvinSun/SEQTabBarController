@@ -18,7 +18,7 @@
 - (void)tabBarSetDataSource:(SEQTabBarSource *)dataSoucre;
 /**
  通过self.selectIndex改变tabbar当前controller时调用
- 
+ 类似 self.selectIndex = index 功能
  @param index 想要选择某个controller
  */
 - (void)changeSelectIndex:(NSInteger)index;

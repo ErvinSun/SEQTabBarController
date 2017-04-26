@@ -21,11 +21,19 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    NSMutableArray *controllerArray = [NSMutableArray arrayWithObjects:[ViewController new], [ViewController new], [ViewController new], [ViewController new], nil];
+    NSMutableArray *controllerArray = [NSMutableArray new];
     
     NSArray *normalImageArray = @[@"tab-home_icon nor", @"tab-news_icon nor", @"tab-message_icon nor", @"tab-mine_icon nor"];
     NSArray *selectedImageArray = @[@"tab-home_icon sel", @"tab-news_icon sel", @"tab-message_icon sel", @"tab-mine_icon sel"];
     NSArray *titleArray = @[@"首页", @"动态", @"信息", @"我的"];
+    
+    for (int i = 0; i < titleArray.count; i ++) {
+        ViewController *view = [[ViewController alloc]init];
+        view.title = [titleArray objectAtIndex:i];
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:view];
+        [controllerArray addObject:nav];
+    }
+    
     SEQTabBarSource *dataSource = [[SEQTabBarSource alloc]init];
     dataSource.titleArr = titleArray;
     dataSource.viewControllers = controllerArray;
@@ -39,9 +47,9 @@
 }
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
     NSLog(@"tabBarItem.title ==== %@",viewController.tabBarItem.title);
-    if ([viewController.tabBarItem.title isEqualToString:@"我的"]) {
-        return NO;
-    }
+//    if ([viewController.tabBarItem.title isEqualToString:@"我的"]) {
+//        return NO;
+//    }
     return YES;
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
